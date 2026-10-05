@@ -1,0 +1,60 @@
+@import url("./colors.css");
+
+* {
+    font-family: "CaskaydiaCove Nerd Font Mono", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+  background: @surface_container_high;
+}
+
+tooltip {
+  background-color: @surface_container;
+}
+
+/* FIX: Make the text not ugly */
+tooltip label {
+  color: @on_surface_variant;
+  font-weight: normal;
+}
+
+#clock,
+#custom-notification,
+#workspaces,
+#pulseaudio,
+#bluetooth,
+#network,
+#battery {
+  /* margin: 0px 5px; */
+}
+
+#battery {
+  margin-right: 10px;
+}
+
+#workspaces {
+  margin-left: 10px;
+}
+
+/* Workspace */
+#workspaces {
+  background-color: @surface_container_high;
+  padding: 2px;
+}
+
+#workspaces button {
+  padding: 2px;
+  margin: 2px;
+  color: @on_surface_variant;
+}
+
+#workspaces button.active {
+  background-color: @primary;
+  padding: 2px;
+  color: @on_primary;
+}

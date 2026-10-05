@@ -1,0 +1,19 @@
+[config]
+
+[templates.kitty]
+input_path = "./templates/kitty-colors.conf"
+output_path = "~/.config/kitty/themes/Matugen.conf"
+post_hook = "kitty +kitten themes --reload-in=all Matugen"
+
+[templates.rofi]
+input_path = "./templates/rofi-colors.rasi"
+output_path = "~/.config/rofi/colors.rasi"
+
+[templates.waybar]
+input_path  = './templates/waybar.css'
+output_path = '~/.config/waybar/colors.css'
+
+[templates.dunst]
+input_path = './templates/dunst-colors'
+output_path = '~/.config/dunst/dunstrc'
+post_hook = 'dunstctl reload'
