@@ -1,6 +1,11 @@
 #!/bin/sh
 
+# Update packages
+echo -e "\n\n=======================\n=== Updating packages\n=======================\n"
+sudo pacman -Syu
+
 # Hide unwanted desktop apps (all installed by default)
+echo -e "\n\n=======================\n=== Hiding unwanted desktop apps\n=======================\n"
 mkdir -p ~/.local/share/applications
 for f in /usr/share/applications/*.desktop; do
   out=~/.local/share/applications/$(basename "$f")
@@ -11,19 +16,24 @@ done
 rm -rf ~/.cache/rofi*
 
 # Install pacman packages
+echo -e "\n\n=======================\n=== Installing pacman packages\n=======================\n"
 sudo pacman -S --needed --noconfirm - < ../packages/packages.txt
 
 # Install paru
+echo -e "\n\n=======================\n=== Installing paru\n=======================\n"
 git clone --depth=1 https://aur.archlinux.org/paru.git "$HOME/paru"
 cd "$HOME/paru"
 makepkg -si
-cd $HOME # Clean files
-rm -rf paru
+cd -
+rm -rf "$HOME/paru"  # Clean files
 
 # Install AUR packages with paru
+echo -e "\n\n=======================\n=== Installing AUR packages with paru\n=======================\n"
 paru -S --needed --noconfirm - < ../packages/aur.txt
 
 # Copy configuration files to their destination
+echo -e "\n\n=======================\n=== Copying config file to their destination\n=======================\n"
+mkdir -p "$HOME/.config"
 for CONFIG in ../config/*; do
 	echo "Copying $(basename $CONFIG) configuration"
 	if [[ -d "$HOME/.config/$(basename $CONFIG)" ]]; then
@@ -34,30 +44,37 @@ for CONFIG in ../config/*; do
 done
 
 # Calls subscripts to carry out the rest of the installation
+echo -e "\n\n=======================\n=== Calling subscripts to carry out the installation\n=======================\n"
 for SCRIPT in ./scripts/*.sh; do
 	echo -e "\n\n=== Running $(basename $SCRIPT) ===\n"
 	"./$SCRIPT"
 done
 
 # Remove unwanted default apps (file manager)
+echo -e "\n\n=======================\n=== Removing unwanted default apps\n=======================\n"
 sudo pacman -Rns dolphin
 
 # Export vim as the user's default editor
-echo "export EDITOR=vim" > "$HOME/.bashrc"
+echo "export EDITOR=vim" >> "$HOME/.bashrc"
+
+# Install wallpapers
+mkdir -p "$HOME/Pictures"
+cp -r ../wallpapers "$HOME/Pictures/Wallpapers"
 
 # Setup first wallpaper so awww picks it up on reboot
 FIRST_WALLPAPER=$(find $HOME/Pictures/Wallpapers/ -type f -name "*.jpg" | head -1)
-awww-daemon &
+awww-daemon >/dev/null 2>&1 & sleep 1
 awww img "$FIRST_WALLPAPER"
 
 # Cache wallpaper
+mkdir -p "$HOME/.cache/current_wallpaper/"
 cp "$FIRST_WALLPAPER" "$HOME/.cache/current_wallpaper/current.jpg"
 
 # Cache theme file
 echo "dark" > $HOME/.cache/current-theme.txt
 
 # Create NEXT-STEPS.md
-cat <<'EOF' > NEXT-STEPS.md
+cat <<'EOF' > $HOME/NEXT-STEPS.md
 # Next steps
 
 This file holds recommendations on the last manual steps to take to completely setup your machine.
@@ -87,4 +104,4 @@ Open telegram and connect your account
 EOF
 
 # Prompt to reboot
-echo -e "\n\nIt is strongly recommended to reboot now, so all services can properly start.\nRun `sudo reboot now`"
+echo -e "\n\nIt is strongly recommended to reboot now, so all services can properly start.\nRun 'sudo reboot now'"

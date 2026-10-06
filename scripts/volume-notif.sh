@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VOLUME=$(wpctl get-volume @DEFAULT_SINK@ 2>/dev/null | awk '{print $2}')
+VOLUME=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null | awk '{print $2}')
 VOLUME_PERCENT=$(awk "BEGIN {printf \"%d\", $VOLUME*100}")
 
 dunstify \

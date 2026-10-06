@@ -1,6 +1,18 @@
 librewolf
 telegram-desktop
 hyprlock
+waybar
+dunst
+kitty
+nautilus
+playerctl
+
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber
+alsa-utils
 
 rofi
 matugen
@@ -13,7 +25,9 @@ mpv
 qemu-full
 caligula
 
+openssh
 git
+vim
 tmux
 libnotify
 base-devel
@@ -33,6 +47,7 @@ syncthing
 curl
 
 ttf-cascadia-code-nerd
+ttf-jetbrains-mono-nerd
 
 nodejs
 npm

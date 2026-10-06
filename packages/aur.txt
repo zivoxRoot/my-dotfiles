@@ -1,2 +1,3 @@
 python-validity
-vm-curator
+vm-curator-bin
+bibata-cursor-theme-bin

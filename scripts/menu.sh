@@ -13,7 +13,7 @@ case "$RESULT" in
 		"$HOME/my-dotfiles/scripts/toggle-theme.sh"
 		;;
 	"Enroll fingerprint")
-		"/home/theophile/my-dotfiles/scripts/enroll-fingerprint.sh"
+		"$HOME/my-dotfiles/scripts/enroll-fingerprint.sh"
 		;;
 	"Lock screen")
 		hyprlock

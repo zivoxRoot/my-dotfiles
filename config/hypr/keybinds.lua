@@ -21,7 +21,7 @@ hl.define_submap("vm", function()
 end)
 
 -- Daily note
--- hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("$HOME/dots/scripts/daily_note.sh"))
+-- hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("$HOME/dots/s/daily_note.sh"))
 
 -- Menu
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(mainMenu))
@@ -51,7 +51,7 @@ hl.bind(mainMod .. " + CTRL + K", hl.dsp.window.resize({ x = 0, y = -30, relativ
 hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.resize({ x = 0, y = 30, relative = true }))
 
 -- Scripts
--- hl.bind("ALT + O", hl.dsp.exec_cmd("$HOME/dots/scripts/speech_to_text.sh")) -- Speech to text
+-- hl.bind("ALT + O", hl.dsp.exec_cmd("$HOME/dots/s/speech_to_text.sh")) -- Speech to text
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -68,12 +68,12 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- Volume and brightness
 hl.bind(
 	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && /home/theophile/my-dotfiles/scripts/volume-notif.sh"),
+	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && $HOME/my-dotfiles/scripts/volume-notif.sh"),
 	{ locked = true, repeating = true }
 )
 hl.bind(
 	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && /home/theophile/my-dotfiles/scripts/volume-notif.sh"),
+	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && $HOME/my-dotfiles/scripts/volume-notif.sh"),
 	{ locked = true, repeating = true }
 )
 hl.bind(
@@ -86,5 +86,5 @@ hl.bind(
 	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
 	{ locked = true, repeating = true }
 )
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+ && /home/theophile/my-dotfiles/scripts/brightness-notif.sh"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%- && /home/theophile/my-dotfiles/scripts/brightness-notif.sh"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+ && $HOME/my-dotfiles/scripts/brightness-notif.sh"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%- && $HOME/my-dotfiles/scripts/brightness-notif.sh"), { locked = true, repeating = true })
