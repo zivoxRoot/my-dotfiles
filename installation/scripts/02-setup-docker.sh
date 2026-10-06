@@ -1,10 +1,7 @@
 #!/bin/sh
 
-# Install docker and start service
+# Start and enable service
 # Add user to docker group
-
-# Install packages
-paru -S --noconfirm --needed docker docker-compose
 
 # Start the service
 sudo systemctl start docker.service

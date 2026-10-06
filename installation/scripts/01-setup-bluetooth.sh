@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # Setup bluetooth
-# Install necessary packages and run the service
+# Run the bluetooth service
 
-sudo pacman -S --needed bluez bluez-utils
 sudo systemctl enable --now bluetooth.service

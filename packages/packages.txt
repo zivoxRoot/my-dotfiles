@@ -25,6 +25,12 @@ mpv
 qemu-full
 caligula
 
+bluez
+bluez-utils
+
+docker
+docker-compose
+
 openssh
 git
 vim

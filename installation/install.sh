@@ -17,7 +17,7 @@ rm -rf ~/.cache/rofi*
 
 # Install pacman packages
 echo -e "\n\n=======================\n=== Installing pacman packages\n=======================\n"
-sudo pacman -S --needed --noconfirm - < ../packages/packages.txt
+sudo pacman -S --needed - < ../packages/packages.txt
 
 # Install paru
 echo -e "\n\n=======================\n=== Installing paru\n=======================\n"
@@ -29,7 +29,7 @@ rm -rf "$HOME/paru"  # Clean files
 
 # Install AUR packages with paru
 echo -e "\n\n=======================\n=== Installing AUR packages with paru\n=======================\n"
-paru -S --needed --noconfirm - < ../packages/aur.txt
+paru -S --needed - < ../packages/aur.txt
 
 # Copy configuration files to their destination
 echo -e "\n\n=======================\n=== Copying config file to their destination\n=======================\n"
@@ -65,6 +65,9 @@ cp -r ../wallpapers "$HOME/Pictures/Wallpapers"
 FIRST_WALLPAPER=$(find $HOME/Pictures/Wallpapers/ -type f -name "*.jpg" | head -1)
 awww-daemon >/dev/null 2>&1 & sleep 1
 awww img "$FIRST_WALLPAPER"
+
+# Run matugen once to generate colors
+matugen --mode dark --type scheme-fruit-salad --source-color-index 0 image "$FIRST_WALLPAPER"
 
 # Cache wallpaper
 mkdir -p "$HOME/.cache/current_wallpaper/"
