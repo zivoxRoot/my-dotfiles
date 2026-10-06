@@ -2,7 +2,7 @@
 
 <!-- TODO: Image/video -->
 
-# Tech stack
+## Tech stack
 
 |Tool           |Program                                      |
 |---------------|---------------------------------------------|
@@ -15,6 +15,16 @@
 |PDF viewer     |[zathura](https://pwmt.org/projects/zathura/)|
 |Theme engine   |[matugen](https://iniox.github.io/#matugen)  |
 |Phone file sync|[syncthing](https://syncthing.net/)          |
+
+## Features
+
+### Main menu
+
+### USB key handling
+
+### Keyboard first workflow
+
+### Fingerprint authentication/sudo access
 
 ## Tasks
 
