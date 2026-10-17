@@ -6,3 +6,5 @@ require("animations")
 require("input")
 require("keybinds")
 require("rules")
+
+require("colors")

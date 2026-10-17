@@ -1,0 +1,27 @@
+{
+  "Frontmatter": {
+    "prefix": "fm",
+    "body": [
+      "---",
+      "title: ${1:title}",
+      "date: ${2:date}",
+      "---",
+      "$0"
+    ],
+    "description": "YAML frontmatter block"
+  },
+  "maths_sum": {
+    "prefix": "sum",
+    "body": [
+      "\\sum_{${1:value}}^{${2:exponent}}$0"
+    ],
+    "description": "Sum equation"
+  },
+  "maths_frac": {
+    "prefix": "frac",
+    "body": [
+      "\\frac{${1:top}}{${2:bottom}}$0"
+    ],
+    "description": "Fraction"
+  }
+}

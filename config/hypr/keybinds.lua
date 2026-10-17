@@ -31,6 +31,7 @@ hl.bind("ALT + Space", hl.dsp.exec_cmd(appMenu))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("dunstctl history-pop"))  -- Pop latest notification
 hl.bind(mainMod .. " + CTRL + N", hl.dsp.exec_cmd("dunstctl set-paused toggle"))  -- Toggle do not disturb
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("dunstctl close-all"))  -- Close all visible notifications
+hl.bind(mainMod .. " + ALT + N", hl.dsp.exec_cmd("dunstctl context"))  -- Open the actions menu
 
 -- Move focus with mainMod + vim keys
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))

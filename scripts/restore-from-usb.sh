@@ -16,7 +16,8 @@ if ! command -v rsync &>/dev/null; then
 	exit 1
 fi
 
-# TODO: verify USB path valididy
+# Verify USB path valididy
+mountpoint -q "$SOURCE" || { echo "USB not mounted at $SOURCE" >&2; exit 1; }
 
 # Check TARGET doesn't already exist
 if [[ -d "$TARGET" ]]; then
@@ -31,6 +32,7 @@ echo -e "The following changes will be made\n"
 rsync -av --itemize-changes --dry-run --exclude "$EXCLUDE" "$SOURCE" "$TARGET"
 
 # Ask confirmation before running the command
+echo
 read -ep "\nContinue? [y/N] \n" -r
 
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then

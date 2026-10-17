@@ -6,6 +6,8 @@ dunst
 kitty
 nautilus
 playerctl
+zathura
+zathura-pdf-mupdf
 
 pipewire
 pipewire-alsa
